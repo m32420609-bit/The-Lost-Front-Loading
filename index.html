@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050a11">
+<meta name="description" content="The Lost Front — Garry's Mod TDM / Objective server.">
+<title>The Lost Front | Loading</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#050a11;color:#eaf4ff;font-family:Arial,Helvetica,sans-serif}.screen{position:relative;isolation:isolate;min-height:100vh;width:100%;overflow:hidden;background:#050a11}.backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}.shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(1,5,10,.62),transparent 27%,rgba(1,5,10,.08) 55%,rgba(1,5,10,.88)),linear-gradient(90deg,rgba(0,4,10,.2),transparent 40%,rgba(0,4,10,.15)}.topline{position:absolute;top:4%;left:4%;right:4%;display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.15em;color:#a9c4df;font-size:clamp(9px,1vw,14px)}.eyebrow,.subline,.welcome{display:block}.eyebrow{font-weight:700;letter-spacing:.22em}.subline{margin-top:9px;opacity:.75}.welcome{margin-top:14px;letter-spacing:.1em}.motto{text-align:right;line-height:1.55}.center-title{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);width:90%;text-align:center;text-shadow:0 3px 22px #000}.brand{font-size:clamp(58px,13vw,180px);font-weight:1000;line-height:.9;letter-spacing:.08em;color:#e8f4ff;text-shadow:0 0 22px #138cff,0 5px 4px #000;transform:scaleX(1.12)}h1{font-size:clamp(23px,4.6vw,62px);letter-spacing:.11em;margin:15px 0 8px;font-weight:900} .center-title p{margin:0;color:#a9d7ff;letter-spacing:.38em;font-size:clamp(9px,1.4vw,18px)}.center-title p span{padding:0 .5em;color:#fff}.bottomline{position:absolute;bottom:5%;left:4%;right:4%;display:grid;grid-template-columns:1fr minmax(180px,28%) 1fr;align-items:end;gap:28px;color:#9fc7ec;font-size:clamp(8px,.8vw,12px);letter-spacing:.08em}.features{display:flex;gap:clamp(10px,2vw,30px);line-height:1.45}.features span{padding-right:clamp(8px,1.5vw,24px);border-right:1px solid #42617b}.features span:last-child{border:0}.loading{text-align:center}.progress{height:7px;border:1px solid #3b6d93;background:rgba(0,0,0,.6);margin-bottom:15px;border-radius:2px;overflow:hidden}.progress span{display:block;width:0;height:100%;background:#14aaff;box-shadow:0 0 15px #008cff;transition:width .25s linear}#loadingText{letter-spacing:.18em;color:#d7eaff}.tip{justify-self:end;line-height:1.6;letter-spacing:0}.tip strong{color:#6dbbff;letter-spacing:.12em}@media(max-width:700px){.topline{top:3%;left:5%;right:5%}.center-title{top:47%;width:96%}.bottomline{left:5%;right:5%;bottom:3%;grid-template-columns:1fr;gap:14px}.features{justify-content:center}.loading{grid-row:1}.tip{justify-self:center;text-align:center}.motto{font-size:9px}.welcome{margin-top:7px}}
+
+/* Robust stacking and readable Discord link */
+html,body{min-height:100%;overflow:hidden}
+.screen{height:100vh;min-height:480px}
+.backdrop{z-index:0}
+.shade{z-index:1;pointer-events:none}
+.topline,.center-title,.bottomline{z-index:2}
+.discord-link{display:inline-flex;align-items:center;gap:9px;margin-top:14px;padding:10px 16px;border:1px solid rgba(80,174,255,.65);border-radius:4px;background:rgba(3,18,32,.78);color:#eaf6ff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.08em;transition:background .2s,border-color .2s}
+.discord-link:hover{background:rgba(0,120,210,.4);border-color:#49baff}
+@media(max-width:700px){html,body{overflow:auto}.screen{min-height:680px;height:100svh}.center-title{top:42%}.bottomline{bottom:3%}.discord-link{margin-top:10px}}
+</style>
+</head>
+<body>
+<main class="screen" aria-label="The Lost Front loading screen">
+  <img class="backdrop" src="assets/loading-screen.png" alt="The Lost Front post-apocalyptic battlefield">
+  <div class="shade"></div>
+  <header class="topline">
+    <div><span class="eyebrow">THE LOST FRONT</span><span class="subline">GARRY'S MOD SERVER</span><span class="welcome">ДОБРО ПОЖАЛОВАТЬ!</span></div>
+    <div class="motto">СРАЖАЙСЯ<br>ВЫЖИВАЙ<br>ДОСТИГАЙ ЦЕЛЕЙ</div>
+  </header>
+  <section class="center-title">
+    <div class="brand">TLF</div>
+    <h1>THE LOST FRONT</h1>
+    <p>GARRY'S MOD <span>|</span> TDM / OBJECTIVE</p>
+    <a class="discord-link" href="https://discord.gg/KAehaw6YnP" target="_blank" rel="noopener noreferrer">◉ ПРИСОЕДИНИТЬСЯ К DISCORD</a>
+  </section>
+  <footer class="bottomline">
+    <div class="features"><span>◈ &nbsp;УНИКАЛЬНЫЙ<br>&nbsp;&nbsp;&nbsp;&nbsp;КОНТЕНТ</span><span>⬡ &nbsp;СТАБИЛЬНАЯ<br>&nbsp;&nbsp;&nbsp;&nbsp;РАБОТА</span><span>ϟ &nbsp;АКТИВНОЕ<br>&nbsp;&nbsp;&nbsp;&nbsp;СООБЩЕСТВО</span></div>
+    <div class="loading"><div class="progress"><span id="progressFill"></span></div><div id="loadingText">ЗАГРУЗКА... <span id="percent">0%</span></div></div>
+    <div class="tip"><strong>ⓘ &nbsp; ПОДСКАЗКА:</strong><br>Держитесь вместе с командой —<br>это увеличивает ваши шансы на победу.</div>
+  </footer>
+</main>
+<script>
+// Demo progress for browser preview / GitHub Pages. Replace with real server hooks if your loading framework supports them.
+(() => {
+  const fill = document.getElementById('progressFill');
+  const percent = document.getElementById('percent');
+  let value = 0;
+  const timer = window.setInterval(() => {
+    value = Math.min(100, value + Math.max(1, Math.random() * 4));
+    fill.style.width = `${value}%`;
+    percent.textContent = `${Math.floor(value)}%`;
+    if (value >= 100) window.clearInterval(timer);
+  }, 350);
+})();
+
+</script>
+</body>
+</html>
